@@ -12,75 +12,41 @@ Text Domain: yewtreesass
 */
 
 /*
-1 - Default Styles
-2 - Wordpress Core CSS
-3 - Bootstrap
-4 - Font Awesome
-5 - Assets
-6 - Header
-7 - Footer
-8 - Pages
+1 - Assets
+    - Booststrap
+    - WordPress Core
+    - Font-awesome
+2 - Custom Assets
+    - Custom Mixins
+    - Custom Variables
+    - Header
+    - Footer
+    - wpadminbar
+3 - Pages
+    - Homepage
 */
 
+
+
 /*------------------------------------
 
-1 - Default Styles
+1 - Assets
 
 ------------------------------------*/
 
-@import "default-css";
+@import "assets/assets";
 
 /*------------------------------------
 
-2 - Wordpress Core CSS
+2 - Custom Assets
 
 ------------------------------------*/
 
-@import "wordpress-core";
+@import "custom-assets/custom-assets";
 
 /*------------------------------------
 
-3 - Bootstrap
-
-------------------------------------*/
-
-@import "bootstrap";
-
-/*------------------------------------
-
-4 - Font Awesome
-
-------------------------------------*/
-
-@import "font-awesome/font-awesome";
-
-/*------------------------------------
-
-5 - Assets
-
-------------------------------------*/
-
-@import "custom-assets/assets";
-
-/*------------------------------------
-
-6 - Header
-
-------------------------------------*/
-
-@import "header";
-
-/*------------------------------------
-
-7 - Footer
-
-------------------------------------*/
-
-@import "footer";
-
-/*------------------------------------
-
-8 - Pages
+3 - Pages
 
 ------------------------------------*/
 

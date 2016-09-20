@@ -1,3 +1,5 @@
+/*-- Colours --*/
+
 //colours
 @mixin colour($color){
   color: $color;
@@ -8,10 +10,15 @@
   background-color: $bgcolor;
 }
 
-//font-size + font-family
-@mixin font($font, $font-family){
-  font-size: $font;
-  font-family: $font-family;
+/*-- CSS Variables --*/
+
+//border-radius
+@mixin rounded($radius){
+  border-radius: $radius;
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -o-border-radius: $radius;
+  -ms-border-radius: $radius;
 }
 
 //box-shadow
@@ -22,6 +29,24 @@
     -o-box-shadow: $x $y $blur rgba(0, 0, 0, $alpha);
     -ms-box-shadow: $x $y $blur rgba(0, 0, 0, $alpha);
 }
+
+//border
+@mixin border($border-width: 15px, $border-style: solid, $border-color: #e6e6e6){
+    border-width: $border-width;
+    border-style: $border-style;
+    border-color: $border-color;
+}
+
+//css placeholder
+@mixin placeholder($color: $brand-primary){
+    ::-webkit-input-placeholder { color: $color;}
+    :-moz-placeholder {color: $color;}
+    ::-moz-placeholder {color: $color;}
+    :-ms-input-placeholder {color: $color;}
+    :-o-input-placeholder {color: $color;}
+}
+
+/*-- CSS Transforms and Transitions --*/
 
 //css transition
 @mixin transition($prop: all, $time: 1s, $ease: linear) {
@@ -73,21 +98,7 @@
     -o-transform-origin:      $x $y;
 }
 
-//border
-@mixin box-border($border-width: 15px, $border-style: solid, $border-color: #e6e6e6){
-    border-width: $border-width;
-    border-style: $border-style;
-    border-color: $border-color;
-}
-
-//css placeholder
-@mixin placeholder($color: $brand-primary){
-    ::-webkit-input-placeholder { color: $color;}
-    :-moz-placeholder {color: $color;}
-    ::-moz-placeholder {color: $color;}
-    :-ms-input-placeholder {color: $color;}
-    :-o-input-placeholder {color: $color;}
-}
+/*-- Postioning --*/
 
 //middle position
 @mixin middlePositon($position: absolute, $left: 0, $right: 0, $margin: 0 auto) {
@@ -97,7 +108,56 @@
   margin: $margin;
 }
 
-//media queries
+//vertical middle position
+@mixin verticalMiddle($position: absolute, $top: 50%, $translate: -50%) {
+  position: $position;
+  top: $top;
+  transform: translateY($translate);
+}
+
+//absolute middle position
+@mixin absoluteMiddle($position: absolute, $left: 0, $right: 0, $top: 50%, $translate: -50%, $margin: 0 auto) {
+  position: $position;
+  left: $left;
+  right: $right;
+  top: $top;
+  transform: translateY($translate);
+  margin: $margin;
+}
+
+/*-- Font --*/
+
+//font-size + font-family
+@mixin font($font, $font-family){
+  font-size: $font;
+  font-family: $font-family;
+}
+
+// Max breakpoint
+$max-breakpoint: $screen-sm-max;
+
+
+$wide-screen: "(min-width: #{$max-breakpoint}px)";
+
+// Function
+@function get-vw($target) {
+  // 1 vw is equal to 1% of the viewport width
+  $vw-context: ($max-breakpoint * .01) * 1px; // 1% viewport width
+  @return ($target/$vw-context) * 1vw;
+}
+
+// Mixin
+@mixin vw($size) {
+  font-size: get-vw($size);
+  // Prevent font-size from getting too big
+  @media #{$wide-screen} {
+    font-size: $size;
+  }
+}
+
+/*-- Media Queries --*/
+
+//responsive max and min
 @mixin responsive($point) {
   @if $point == large {
     @media all and (max-width: $screen-lg-max) and (min-width: $screen-lg-min) {
@@ -120,6 +180,8 @@
     }
   }
 }
+
+//responsive max
 @mixin responsive-max($point) {
   @if $point == extraLarge {
     @media all and (max-width: $screen-lg-max) {
@@ -142,6 +204,8 @@
     }
   }
 }
+
+//responsive min
 @mixin responsive-min($point) {
   @if $point == extraLarge {
     @media all and (min-width: $screen-xl-min) {

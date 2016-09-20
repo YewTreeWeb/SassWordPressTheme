@@ -1,0 +1,85 @@
+/*------------------------------
+Screen Size
+------------------------------*/
+
+// Extra large screen / wide desktop
+$screen-xl:                  1560px !default;
+$screen-xl-min:              $screen-xl !default;
+//** Deprecated `$screen-lg-desktop` as of v3.0.1
+$screen-xl-desktop:          $screen-xl-min !default;
+
+// So media queries don't overlap when required, provide a maximum
+$screen-lg-max:              ($screen-xl-min - 1) !default;
+
+// Large screen / wide desktop
+$container-extralarge-desktop: ($screen-xl - $grid-gutter-width) !default;
+//** For `$screen-lg-min` and up.
+$container-xl:                 $container-extralarge-desktop !default;
+
+/*------------------------------
+Grid
+------------------------------*/
+
+.container-xl {
+  @include container-fixed;
+
+  @media (min-width: $screen-xl-min) {
+    width: $container-xl;
+  }
+}
+
+// Extra large grid
+//
+// Columns, offsets, pushes, and pulls for the large desktop device range.
+
+@media (min-width: $screen-xl-min) {
+  @include make-grid(xl);
+}
+
+/*------------------------------
+Colours
+------------------------------*/
+$white:  $body-bg !default;
+$black:  #000 !default;
+$gray: $gray-base !default;
+
+/*------------------------------
+Font
+------------------------------*/
+$font: $font-family-base !default;
+$headers: $font-family-headers !default;
+$light: $font-family-sans-serif !default;
+
+/*------------------------------
+Font Sizes
+------------------------------*/
+
+//headings
+$h1:  $font-size-h1;
+$h2:  $font-size-h2;
+$h3:  $font-size-h3;
+$h4:  $font-size-h4;
+$h5:  $font-size-h5;
+$h6:  $font-size-h6;
+
+//non-headings
+$font-size:  $font-size-base;
+$font-lg:    $font-size-large;
+$font-md:    $font-size-medium;
+$font-sm:    $font-size-small;
+$font-xs:    $font-size-tiny;
+
+//convert px to em and px to rem
+$base-font-size: $font-size-base;
+
+@function em($pixels, $context: $base-font-size) {
+  @return #{$pixels/$context}em;
+}
+
+@function rem($pixels, $base-font-size) {
+  @return #{$pixels/$base-font-size}rem;
+}
+
+/*------------------------------
+Global Elements
+------------------------------*/

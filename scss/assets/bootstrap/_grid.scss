@@ -21,14 +21,6 @@
   }
 }
 
-.container-xl {
-  @include container-fixed;
-
-  @media (min-width: $screen-xl-min) {
-    width: $container-xl;
-  }
-}
-
 
 // Fluid container
 //
@@ -89,12 +81,4 @@
 
 @media (min-width: $screen-lg-min) {
   @include make-grid(lg);
-}
-
-// Extra large grid
-//
-// Columns, offsets, pushes, and pulls for the large desktop device range.
-
-@media (min-width: $screen-xl-min) {
-  @include make-grid(xl);
 }

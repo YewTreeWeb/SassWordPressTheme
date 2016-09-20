@@ -9,7 +9,6 @@ $bootstrap-sass-asset-helper: false !default;
 //## Gray and brand colors for use across Bootstrap.
 
 $gray-base:              #4d4d4d !default;
-$gray:                   $gray-base !default;
 $gray-darker:            darken($gray-base, 13.5%) !default; // #222
 $gray-dark:              darken($gray-base, 20%) !default;   // #333
 $gray-light:             lighten($gray-base, 46.7%) !default; // #777
@@ -57,25 +56,12 @@ $font-size-medium:        ceil(($font-size-base + 2)) !default;
 $font-size-small:         ceil(($font-size-base - 2)) !default;
 $font-size-tiny:          floor(($font-size-base - 4)) !default;
 
-$font-size:               $font-size-base;
-$font-lg:                 $font-size-large;
-$font-md:                 $font-size-medium;
-$font-sm:                 $font-size-small;
-$font-xs:                 $font-size-tiny;
-
 $font-size-h1:            ceil(($font-size-base * 3)) !default;
 $font-size-h2:            ceil(($font-size-base * 2.5)) !default;
 $font-size-h3:            ceil(($font-size-base * 1.8)) !default;
 $font-size-h4:            floor(($font-size-h3 - 2)) !default;
 $font-size-h5:            floor(($font-size-h4 - 2)) !default;
 $font-size-h6:            ceil(($font-size-large + 2)) !default;
-
-$h1:                      $font-size-h1;
-$h2:                      $font-size-h2;
-$h3:                      $font-size-h3;
-$h4:                      $font-size-h4;
-$h5:                      $font-size-h5;
-$h6:                      $font-size-h6;
 
 //** Unit-less `line-height` for use in components like buttons.
 $line-height-base:        1.428571429 !default; // 20/14
@@ -208,7 +194,7 @@ $input-bg:                       #fff !default;
 $input-bg-disabled:              $gray-lighter !default;
 
 //** Text color for `<input>`s
-$input-color:                    $gray !default;
+$input-color:                    $gray-base !default;
 //** `<input>` border color
 $input-border:                   #ccc !default;
 
@@ -333,17 +319,10 @@ $screen-lg-min:              $screen-lg !default;
 //** Deprecated `$screen-lg-desktop` as of v3.0.1
 $screen-lg-desktop:          $screen-lg-min !default;
 
-// Extra large screen / wide desktop
-$screen-xl:                  1560px !default;
-$screen-xl-min:              $screen-xl !default;
-//** Deprecated `$screen-lg-desktop` as of v3.0.1
-$screen-xl-desktop:          $screen-xl-min !default;
-
 // So media queries don't overlap when required, provide a maximum
 $screen-xs-max:              ($screen-sm-min - 1) !default;
 $screen-sm-max:              ($screen-md-min - 1) !default;
 $screen-md-max:              ($screen-lg-min - 1) !default;
-$screen-lg-max:              ($screen-xl-min - 1) !default;
 
 //== Grid system
 //
@@ -378,11 +357,6 @@ $container-md:                 $container-desktop !default;
 $container-large-desktop:      (1140px + $grid-gutter-width) !default;
 //** For `$screen-lg-min` and up.
 $container-lg:                 $container-large-desktop !default;
-
-// Large screen / wide desktop
-$container-extralarge-desktop: ($screen-xl - $grid-gutter-width) !default;
-//** For `$screen-lg-min` and up.
-$container-xl:                 $container-extralarge-desktop !default;
 
 
 //== Navbar
@@ -464,7 +438,7 @@ $nav-tabs-border-color:                     #ddd !default;
 $nav-tabs-link-hover-border-color:          $gray-lighter !default;
 
 $nav-tabs-active-link-hover-bg:             $body-bg !default;
-$nav-tabs-active-link-hover-color:          $gray !default;
+$nav-tabs-active-link-hover-color:          $gray-base !default;
 $nav-tabs-active-link-hover-border-color:   #ddd !default;
 
 $nav-tabs-justified-link-border-color:            #ddd !default;
