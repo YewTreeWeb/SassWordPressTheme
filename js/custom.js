@@ -6,11 +6,6 @@ if (typeof jQuery === 'undefined') { throw new Error('myscript\'s JavaScript req
     Main Scripts
   --------------------------------*/
 
-    /*-- activate WOW.js --*/
-    $(function(){
-        new WOW().init();
-    });
-
     /*-- smooth scrolling for anchor links --*/
     $(function() {
       $('a.smooth').click(function() {
@@ -67,7 +62,7 @@ if (typeof jQuery === 'undefined') { throw new Error('myscript\'s JavaScript req
 
       $('.carousel-inner').children('.item:first-child').addClass('active');
 
-      $('.slide').each(function(i, e) {
+      $('.slide').each(function(i) {
         $(this).attr('id', 'id_' + i).appendTo(this);
         $('a.left.carousel-control').attr('href', '#id_' + i);
         $('a.right.carousel-control').attr('href', '#id_' + i);
