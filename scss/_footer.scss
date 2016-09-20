@@ -1,0 +1,7 @@
+footer{
+  @include bgColour($gray-darker);
+  @include colour($body-bg);
+  min-height: 300px;
+  margin-top: 3%;
+  padding-top: 3%;
+}

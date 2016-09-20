@@ -1,0 +1,27 @@
+/*-- wpadminbar for Frontend --*/
+#wpadminbar{
+
+  top: -32px;
+  transition: all, .3s, ease-in-out;
+  &.active{
+    top: 0;
+  }
+
+}
+.toolbar-button{
+
+  background-color: #23282d;
+  position: fixed;
+  top: 0;
+  font-size: 1.5em;
+  color: $gray-light;
+  background-color: #23282d;
+  padding: 3px 9px;
+  border-radius: 0 0 6px 6px;
+  transition: all, .3s, ease-in-out;
+  cursor: pointer;
+  &.down{
+    top: 32px;
+  }
+
+}

@@ -1,0 +1,87 @@
+/*
+Theme Name: YewTree - Sass
+Theme URI: http://yewtreeweb.co.uk/wordpress-themes/sass
+Author: YewTree Web
+Author URI: http://yewtreeweb.co.uk
+Description: A Wordpress theme created by YewTree Web using Sass with Bootstrap 3
+Version: 1.7
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: sass, bootstrap, responsive, sidebar, clean, customizeable, custom-header, custom-menu, editor-style, featured-images
+Text Domain: yewtreesass
+*/
+
+/*
+1 - Default Styles
+2 - Wordpress Core CSS
+3 - Bootstrap
+4 - Font Awesome
+5 - Assets
+6 - Header
+7 - Footer
+8 - Pages
+*/
+
+/*------------------------------------
+
+1 - Default Styles
+
+------------------------------------*/
+
+@import "default-css";
+
+/*------------------------------------
+
+2 - Wordpress Core CSS
+
+------------------------------------*/
+
+@import "wordpress-core";
+
+/*------------------------------------
+
+3 - Bootstrap
+
+------------------------------------*/
+
+@import "bootstrap";
+
+/*------------------------------------
+
+4 - Font Awesome
+
+------------------------------------*/
+
+@import "font-awesome/font-awesome";
+
+/*------------------------------------
+
+5 - Assets
+
+------------------------------------*/
+
+@import "custom-assets/assets";
+
+/*------------------------------------
+
+6 - Header
+
+------------------------------------*/
+
+@import "header";
+
+/*------------------------------------
+
+7 - Footer
+
+------------------------------------*/
+
+@import "footer";
+
+/*------------------------------------
+
+8 - Pages
+
+------------------------------------*/
+
+@import "pages/child-pages";

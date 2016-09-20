@@ -1,0 +1,11 @@
+header{
+  .nav-wrap{
+    li{
+      > a{
+        &:hover{
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

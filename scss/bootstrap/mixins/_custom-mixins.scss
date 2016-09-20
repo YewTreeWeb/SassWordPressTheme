@@ -1,0 +1,171 @@
+//colours
+@mixin colour($color){
+  color: $color;
+}
+
+//background-color
+@mixin bgColour($bgcolor){
+  background-color: $bgcolor;
+}
+
+//font-size + font-family
+@mixin font($font, $font-family){
+  font-size: $font;
+  font-family: $font-family;
+}
+
+//box-shadow
+@mixin drop-shadow($x: 0px, $y: 0px, $blur: 0px, $alpha: 0.5){
+    box-shadow: $x $y $blur rgba(0, 0, 0, $alpha);
+    -webkit-box-shadow: $x $y $blur rgba(0, 0, 0, $alpha);
+    -moz-box-shadow: $x $y $blur rgba(0, 0, 0, $alpha);
+    -o-box-shadow: $x $y $blur rgba(0, 0, 0, $alpha);
+    -ms-box-shadow: $x $y $blur rgba(0, 0, 0, $alpha);
+}
+
+//css transition
+@mixin transition($prop: all, $time: 1s, $ease: linear) {
+    transition: $prop $time $ease;
+    -webkit-transition: $prop $time $ease;
+    -moz-transition: $prop $time $ease;
+    -o-transition: $prop $time $ease;
+    -ms-transition: $prop $time $ease;
+}
+
+//css transition-delay
+@mixin transition-delay($time){
+    transition-delay: $time;
+    -webkit-transition-delay: $time;
+    -moz-transition-delay: $time;
+    -o-transition-delay: $time;
+    -ms-transition-delay: $time;
+}
+
+//css transform
+@mixin transform($string){
+    -webkit-transform: $string;
+    -moz-transform: 	 $string;
+    -ms-transform: 		 $string;
+    -o-transform: 		 $string;
+}
+
+//css scale
+@mixin scale($factor) {
+    -webkit-transform: scale($factor);
+    -moz-transform: 	 scale($factor);
+    -ms-transform: 		 scale($factor);
+    -o-transform: 		 scale($factor);
+}
+
+//css rotate
+@mixin rotate($deg) {
+    -webkit-transform: rotate($deg);
+    -moz-transform: 	 rotate($deg);
+    -ms-transform: 		 rotate($deg);
+    -o-transform: 		 rotate($deg);
+}
+
+//css transform-origin
+@mixin transform-origin($x, $y) {
+    -webkit-transform-origin: $x $y;
+    -moz-transform-origin:    $x $y;
+    -ms-transform-origin:     $x $y;
+    -o-transform-origin:      $x $y;
+}
+
+//border
+@mixin box-border($border-width: 15px, $border-style: solid, $border-color: #e6e6e6){
+    border-width: $border-width;
+    border-style: $border-style;
+    border-color: $border-color;
+}
+
+//css placeholder
+@mixin placeholder($color: $brand-primary){
+    ::-webkit-input-placeholder { color: $color;}
+    :-moz-placeholder {color: $color;}
+    ::-moz-placeholder {color: $color;}
+    :-ms-input-placeholder {color: $color;}
+    :-o-input-placeholder {color: $color;}
+}
+
+//middle position
+@mixin middlePositon($position: absolute, $left: 0, $right: 0, $margin: 0 auto) {
+  position: $position;
+  left: $left;
+  right: $right;
+  margin: $margin;
+}
+
+//media queries
+@mixin responsive($point) {
+  @if $point == large {
+    @media all and (max-width: $screen-lg-max) and (min-width: $screen-lg-min) {
+      @content;
+    }
+  }
+  @else if $point == medium {
+    @media all and (max-width: $screen-md-max) and (min-width: $screen-md-min){
+      @content;
+    }
+  }
+  @else if $point == small {
+    @media all and (max-width: $screen-sm-max) and (min-width: $screen-sm-min)  {
+      @content;
+    }
+  }
+  @else if $point == tiny {
+    @media all and (max-width: $screen-xs-max) and (min-width: $screen-xs-min)  {
+      @content;
+    }
+  }
+}
+@mixin responsive-max($point) {
+  @if $point == extraLarge {
+    @media all and (max-width: $screen-lg-max) {
+      @content;
+    }
+  }
+  @else if $point == large {
+    @media all and (max-width: $screen-md-max) {
+      @content;
+    }
+  }
+  @else if $point == small {
+    @media all and (max-width: $screen-sm-max)  {
+      @content;
+    }
+  }
+  @else if $point == tiny {
+    @media all and (max-width: $screen-xs-max)  {
+      @content;
+    }
+  }
+}
+@mixin responsive-min($point) {
+  @if $point == extraLarge {
+    @media all and (min-width: $screen-xl-min) {
+      @content;
+    }
+  }
+  @else if $point == large {
+    @media all and (min-width: $screen-lg-min) {
+      @content;
+    }
+  }
+  @else if $point == medium {
+    @media all and (min-width: $screen-md-min) {
+      @content;
+    }
+  }
+  @else if $point == small {
+    @media all and (min-width: $screen-sm-min)  {
+      @content;
+    }
+  }
+  @else if $point == tiny {
+    @media all and (min-width: $screen-xs-min)  {
+      @content;
+    }
+  }
+}
