@@ -1,0 +1,29 @@
+{
+  "name": "defaultsasstheme",
+  "description": "WordPress theme created with Sass and npm installed",
+  "main": "index.js",
+  "authors": [
+    "Mathew Teague"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "boostrap",
+    "wordpress",
+    "sass",
+    "responsive"
+  ],
+  "homepage": "http://yewtreeweb.co.uk",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "jquery": "2.2.4",
+    "jquery-migrate": "1.4.0",
+    "html5shiv": "^3.7.3",
+    "respond": "^1.4.2"
+  }
+}

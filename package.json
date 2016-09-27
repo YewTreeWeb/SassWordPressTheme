@@ -1,0 +1,30 @@
+{
+  "name": "defaultsasstheme",
+  "version": "2.0.0",
+  "description": "WordPress theme created with Sass and npm installed",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YewTreeWeb/SassWordPressTheme.git"
+  },
+  "keywords": [
+    "boostrap",
+    "wordpress",
+    "sass",
+    "responsive"
+  ],
+  "author": "Mathew Teague",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YewTreeWeb/SassWordPressTheme/issues"
+  },
+  "homepage": "https://github.com/YewTreeWeb/SassWordPressTheme#readme",
+  "devDependencies": {
+    "bower": "^1.7.9",
+    "flightplan": "^0.6.14",
+    "gulp": "^3.9.1"
+  }
+}

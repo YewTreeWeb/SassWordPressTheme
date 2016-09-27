@@ -10,16 +10,17 @@
 }
 .toolbar-button{
 
-  background-color: #23282d;
+  background-color: $wp-toolbar;
   position: fixed;
   top: 0;
+  right: 0;
   font-size: 1.5em;
   color: $gray-light;
-  background-color: #23282d;
   padding: 3px 9px;
   border-radius: 0 0 6px 6px;
   transition: all, .3s, ease-in-out;
   cursor: pointer;
+  z-index: 9999;
   &.down{
     top: 32px;
   }
