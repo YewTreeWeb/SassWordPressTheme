@@ -56,19 +56,19 @@ Font Sizes
 ------------------------------*/
 
 //headings
-$h1:  $font-size-h1;
-$h2:  $font-size-h2;
-$h3:  $font-size-h3;
-$h4:  $font-size-h4;
-$h5:  $font-size-h5;
-$h6:  $font-size-h6;
+$h1:  $font-size-h1 !default;
+$h2:  $font-size-h2 !default;
+$h3:  $font-size-h3 !default;
+$h4:  $font-size-h4 !default;
+$h5:  $font-size-h5 !default;
+$h6:  $font-size-h6 !default;
 
 //non-headings
-$font-size:  $font-size-base;
-$font-lg:    $font-size-large;
-$font-md:    $font-size-medium;
-$font-sm:    $font-size-small;
-$font-xs:    $font-size-tiny;
+$font-size:  $font-size-base !default;
+$font-lg:    $font-size-large !default;
+$font-md:    $font-size-medium !default;
+$font-sm:    $font-size-small !default;
+$font-xs:    $font-size-tiny !default;
 
 //convert px to em and px to rem
 $base-font-size: $font-size-base;
