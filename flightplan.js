@@ -6,7 +6,6 @@ plan.target('staging', [
     host: 'shell.gridhost.co.uk',
     username: 'yewtreew1',
     port: 22,
-    privateKey: '/Users/Mat/.shh/new-key',
     agent: process.env.SSH_AUTH_SOCK
   },
 ]);
@@ -33,7 +32,7 @@ plan.local(function(local) {
 
     var deploy = 'yewtreeweb-test.uk';
     local.log('Deploying to' + deploy);
-    local.transfer(filesToCopy, '~/public_html/wp-content/themes/YewTree-ComingSoon');
+    local.transfer(filesToCopy, '~/public_html/wp-content/themes/DefaultTheme-Sass');
 
   }
   if(plan.runtime.target === 'production'){
