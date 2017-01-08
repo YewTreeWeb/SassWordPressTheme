@@ -31,14 +31,14 @@ plan.local(function(local) {
   if(plan.runtime.target === 'staging'){
 
     var deploy = 'yewtreeweb-test.uk';
-    local.log('Deploying to' + deploy);
+    local.log('Deploying to ' + deploy);
     local.transfer(filesToCopy, '~/public_html/wp-content/themes/DefaultTheme-Sass');
 
   }
   if(plan.runtime.target === 'production'){
 
     var deploy = 'yewtreeweb.co.uk';
-    local.log('Deploying to' + deploy);
+    local.log('Deploying to ' + deploy);
     local.transfer(filesToCopy, '~/public_html/wp-content/themes/YewTree-ComingSoon');
 
   }

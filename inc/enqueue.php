@@ -69,26 +69,28 @@ function web_scripts(){
 
   //JavaScript Files
 
-  wp_enqueue_script( 'selectivizr', get_template_directory_uri() . 'js/selectivizr-min.js', array(), '1.0.2', false);
+  wp_enqueue_script( 'selectivizr', get_template_directory_uri() . '/js/selectivizr-min.js', array(), '1.0.2', false);
 	wp_script_add_data( 'selectivizr', 'conditional', 'lte IE 9' );
 
-  wp_enqueue_script( 'html5shiv', get_template_directory_uri() . 'bower_components/html5shiv/dist/html5shiv.min.js', array(), '3.7.3', false);
+  wp_enqueue_script( 'html5shiv', get_template_directory_uri() . '/bower_components/html5shiv/dist/html5shiv.min.js', array(), '3.7.3', false);
 	wp_script_add_data( 'html5shiv', 'conditional', 'lte IE 9' );
 
-  wp_enqueue_script( 'respond', get_template_directory_uri() . 'bower_components/respond/dest/respond.min.js', array(), '1.4.2', false);
+  wp_enqueue_script( 'respond', get_template_directory_uri() . '/bower_components/respond/dest/respond.min.js', array(), '1.4.2', false);
 	wp_script_add_data( 'respond', 'conditional', 'lte IE 9' );
 
   wp_deregister_script('jquery');
-  wp_register_script('jquery', get_template_directory_uri() . 'bower_components/jquery/dist/jquery.min.js', '', '2.2.4', true);
+  wp_register_script('jquery', get_template_directory_uri() . '/bower_components/jquery/dist/jquery.min.js', '', '2.2.4', true);
   wp_enqueue_script('jquery');
 
-  wp_enqueue_script('jquery-migrate', get_template_directory_uri() . 'bower_components/jquery-migrate/jquery-migrate.min.js', '', '1.4.0', true);
+  wp_deregister_script('jquery-migrate');
+  wp_register_script('jquery-migrate', get_template_directory_uri() . '/bower_components/jquery-migrate/jquery-migrate.min.js', '', '1.4.0', true);
+  wp_enqueue_script('jquery-migrate');
 
   wp_enqueue_script('bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array('jquery'), '3.3.4', true);
 
   wp_enqueue_script('custom', get_template_directory_uri() . '/js/custom.min.js', array('jquery'), '1.0', true);
 
-  wp_enqueue_script( 'rem', get_template_directory_uri() . 'bower_components/REM-unit-polyfill/js/rem.min.js', array(), '1.0', true);
+  wp_enqueue_script( 'rem', get_template_directory_uri() . '/bower_components/REM-unit-polyfill/js/rem.min.js', array(), '1.0', true);
 	wp_script_add_data( 'rem', 'conditional', 'lte IE 9' );
 
 }
