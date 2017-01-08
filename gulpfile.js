@@ -13,9 +13,7 @@ var config = {
     'js/min/devlop.min.js'
   ],
   cssConcat: [
-    'css/animate.min.css',
-    'css/hover-min.css',
-    'style.css'
+    'css/**/*.min.css'
   ],
   buildRemove: [
     'build/scss/',
@@ -45,6 +43,8 @@ babel  = require('gulp-babel'),
 sourcemaps = require('gulp-sourcemaps'),
 // Compress Images
 imagemin = require('gulp-imagemin'),
+// Minify PHP
+phpMinify = require('@aquafadas/gulp-php-minify');
 // Detect changes and errors
 plumber = require('gulp-plumber'),
 changed = require('gulp-changed'),
@@ -99,22 +99,25 @@ gulp.task('styles', function(){
   .pipe( plumber() )
   .pipe( sourcemaps.init() )
   .pipe( sass({
-    outputStyle: 'compressed',
+    outputStyle: 'nested',
   }).on('error', handleErrors) )
   .pipe( autoprefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true }) )
   .pipe( sourcemaps.write('maps') )
-  .pipe( rename( {suffix:'.min'} ) )
   .pipe( gulp.dest('css') )
+  .pipe( gulp.dest('/') )
   .pipe( reload({ stream:true }) );
 
 });
 
-/*---------------
-PHP
----------------*/
-gulp.task('php', function(){
-  return gulp.src( './**/*.php' )
+gulp.task('css', function(){
+  return gulp.src( ['css/**/*.css', '!css/**/*.min.css'] )
   .pipe( plumber() )
+  .pipe( sourcemaps.init() )
+  .pipe( changed('css').on('error', handleErrors) )
+  .pipe( cleanCSS().on('error', handleErrors) )
+  .pipe( sourcemaps.write('maps') )
+  .pipe( rename( {suffix:'.min'} ) )
+  .pipe( gulp.dest('css') )
   .pipe( reload({ stream:true }) );
 
 });
@@ -160,8 +163,8 @@ gulp.task('build:jsConcat', function(){
 
   return gulp.src(config.jsConcat)
   .pipe( plumber() )
-  .pipe( concat('all.min.js') )
-  .pipe( gulp.dest('js') );
+  .pipe( concat('all.min.js').on('error', handleErrors) )
+  .pipe( gulp.dest('build/js') );
 
 });
 
@@ -169,8 +172,9 @@ gulp.task('build:cssConcat', function(){
 
   return gulp.src(config.cssConcat)
   .pipe( plumber() )
-  .pipe( concat('all.min.css') )
-  .pipe( gulp.dest('css') );
+  .pipe( concat('style.css').on('error', handleErrors) )
+  .pipe( cleanCSS().on('error', handleErrors) )
+  .pipe( gulp.dest('build') );
 
 });
 
@@ -212,7 +216,8 @@ gulp.task('watch', function(){
 
   gulp.watch( 'js/**/*.js', ['scripts'] );
   gulp.watch( 'scss/**/*.{scss,sass}', ['styles'] );
-  gulp.watch( './**/*.php', ['html'] );
+  gulp.watch( 'css/**/*.css', ['css'] );
+  gulp.watch( './**/*.php', reload );
   gulp.watch( 'images/**/*', ['img']);
 
 });

@@ -25,6 +25,7 @@
     "jquery-migrate": "1.4.0",
     "html5shiv": "^3.7.3",
     "respond": "^1.4.2",
-    "REM-unit-polyfill": "^1.3.4"
+    "REM-unit-polyfill": "^1.3.4",
+    "hover": "Hover#^2.1.0"
   }
 }

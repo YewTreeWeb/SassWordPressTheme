@@ -62,10 +62,7 @@ function web_scripts(){
   wp_enqueue_style( 'main', get_stylesheet_uri() );
 
   wp_register_style( 'animate', get_template_directory_uri() . '/css/animate.min.css', array(), 'all' );
-  wp_register_style( 'hover', get_template_directory_uri() . '/css/hover-min.css', array(), 'all' );
-
   wp_enqueue_style( 'animate' );
-  wp_enqueue_style( 'hover' );
 
   //JavaScript Files
 
