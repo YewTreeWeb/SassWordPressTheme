@@ -1,24 +1,19 @@
-/*------------------------------
-Screen Size
-------------------------------*/
+//-----------------
+// Variables
+//-----------------
 
-// Extra large screen / wide desktop
+// Screen Sizes
+
 $screen-xl:                  1560px !default;
 $screen-xl-min:              $screen-xl !default;
-//** Deprecated `$screen-lg-desktop` as of v3.0.1
 $screen-xl-desktop:          $screen-xl-min !default;
 
-// So media queries don't overlap when required, provide a maximum
 $screen-lg-max:              ($screen-xl-min - 1) !default;
 
-// Large screen / wide desktop
 $container-extralarge-desktop: ($screen-xl - $grid-gutter-width) !default;
-//** For `$screen-lg-min` and up.
 $container-xl:                 $container-extralarge-desktop !default;
 
-/*------------------------------
-Grid
-------------------------------*/
+// Grid
 
 .container-xl {
   @include container-fixed;
@@ -28,32 +23,22 @@ Grid
   }
 }
 
-// Extra large grid
-//
-// Columns, offsets, pushes, and pulls for the large desktop device range.
-
 @media (min-width: $screen-xl-min) {
   @include make-grid(xl);
 }
 
-/*------------------------------
-Colours
-------------------------------*/
+// Colours
 $white:  $body-bg !default;
 $black:  #000 !default;
 $gray: $gray-base !default;
 $wp-toolbar: #23282d;
 
-/*------------------------------
-Font
-------------------------------*/
+// Font
 $font: $font-family-base !default;
 $headers: $font-family-headers !default;
 $light: $font-family-sans-serif !default;
 
-/*------------------------------
-Font Sizes
-------------------------------*/
+// Font Sizes
 
 //headings
 $h1:  $font-size-h1 !default;
@@ -80,7 +65,3 @@ $base-font-size: $font-size-base;
 @function rem($pixels, $base-font-size) {
   @return #{$pixels/$base-font-size}rem;
 }
-
-/*------------------------------
-Global Elements
-------------------------------*/

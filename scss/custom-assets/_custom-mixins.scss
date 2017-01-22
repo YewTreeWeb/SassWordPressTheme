@@ -1,4 +1,6 @@
-/*-- Colours --*/
+//-----------------
+// Mixins
+//-----------------
 
 //colours
 @mixin colour($color){
@@ -9,8 +11,6 @@
 @mixin bgColour($bgcolor){
   background-color: $bgcolor;
 }
-
-/*-- CSS Variables --*/
 
 //border-radius
 @mixin rounded($radius){
@@ -45,8 +45,6 @@
     :-ms-input-placeholder {color: $color;}
     :-o-input-placeholder {color: $color;}
 }
-
-/*-- CSS Transforms and Transitions --*/
 
 //css transition
 @mixin transition($prop: all, $time: 1s, $ease: linear) {
@@ -98,8 +96,6 @@
     -o-transform-origin:      $x $y;
 }
 
-/*-- Postioning --*/
-
 //middle position
 @mixin middlePositon($position: absolute, $left: 0, $right: 0, $margin: 0 auto) {
   position: $position;
@@ -124,8 +120,6 @@
   transform: translateY($translate);
   margin: $margin;
 }
-
-/*-- Font --*/
 
 //font-size + font-family
 @mixin font($font, $font-family){
@@ -154,8 +148,6 @@ $wide-screen: "(min-width: #{$max-breakpoint}px)";
     font-size: $size;
   }
 }
-
-/*-- Media Queries --*/
 
 //responsive max and min
 @mixin responsive($point) {

@@ -19,10 +19,11 @@ Text Domain: yewtreesass
 2 - Custom Assets
     - Custom Mixins
     - Custom Variables
+    - wpadminbar
+3 - Sections
     - Header
     - Footer
-    - wpadminbar
-3 - Pages
+4 - Pages
     - Homepage
 */
 
@@ -34,7 +35,7 @@ Text Domain: yewtreesass
 
 ------------------------------------*/
 
-@import "assets/assets";
+@import "core-assets/assets";
 
 /*------------------------------------
 
@@ -46,7 +47,15 @@ Text Domain: yewtreesass
 
 /*------------------------------------
 
-3 - Pages
+3 - Sections
+
+------------------------------------*/
+
+@import "sections/section";
+
+/*------------------------------------
+
+4 - Pages
 
 ------------------------------------*/
 

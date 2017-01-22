@@ -13,7 +13,9 @@ var config = {
     'js/min/devlop.min.js'
   ],
   cssConcat: [
-    'css/**/*.min.css'
+    'css/animate.min.css',
+    'css/hover-min.css',
+    'style.css'
   ],
   buildRemove: [
     'build/scss/',
@@ -43,8 +45,7 @@ babel  = require('gulp-babel'),
 sourcemaps = require('gulp-sourcemaps'),
 // Compress Images
 imagemin = require('gulp-imagemin'),
-// Minify PHP
-phpMinify = require('@aquafadas/gulp-php-minify');
+cache = require('gulp-cache'),
 // Detect changes and errors
 plumber = require('gulp-plumber'),
 changed = require('gulp-changed'),
@@ -99,22 +100,9 @@ gulp.task('styles', function(){
   .pipe( plumber() )
   .pipe( sourcemaps.init() )
   .pipe( sass({
-    outputStyle: 'nested',
+    outputStyle: 'compressed',
   }).on('error', handleErrors) )
   .pipe( autoprefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true }) )
-  .pipe( sourcemaps.write('maps') )
-  .pipe( gulp.dest('css') )
-  .pipe( gulp.dest('/') )
-  .pipe( reload({ stream:true }) );
-
-});
-
-gulp.task('css', function(){
-  return gulp.src( ['css/**/*.css', '!css/**/*.min.css'] )
-  .pipe( plumber() )
-  .pipe( sourcemaps.init() )
-  .pipe( changed('css').on('error', handleErrors) )
-  .pipe( cleanCSS().on('error', handleErrors) )
   .pipe( sourcemaps.write('maps') )
   .pipe( rename( {suffix:'.min'} ) )
   .pipe( gulp.dest('css') )
@@ -126,10 +114,11 @@ gulp.task('css', function(){
 Images
 ---------------*/
 gulp.task('images', function() {
-  return gulp.src( ['images/**/*.{png,jpg,jpeg,svg,gif}','!images/min/*.{png,jpg,jpeg,svg,gif}'] )
+  return gulp.src( ['images/**/*.+(png|jpg|jpeg|gif|svg)','!images/min/*.+(png|jpg|jpeg|gif|svg)'] )
   .pipe( plumber() )
   .pipe( changed('images/min').on('error', handleErrors) )
   .pipe( cache( imagemin({
+    optimizationLevel: 7,
     progressive: true,
     interlaced: true,
     svgoPlugins: [{cleanupIDs: false}]
@@ -163,8 +152,8 @@ gulp.task('build:jsConcat', function(){
 
   return gulp.src(config.jsConcat)
   .pipe( plumber() )
-  .pipe( concat('all.min.js').on('error', handleErrors) )
-  .pipe( gulp.dest('build/js') );
+  .pipe( concat('all.min.js') )
+  .pipe( gulp.dest('js') );
 
 });
 
@@ -172,9 +161,8 @@ gulp.task('build:cssConcat', function(){
 
   return gulp.src(config.cssConcat)
   .pipe( plumber() )
-  .pipe( concat('style.css').on('error', handleErrors) )
-  .pipe( cleanCSS().on('error', handleErrors) )
-  .pipe( gulp.dest('build') );
+  .pipe( concat('all.min.css') )
+  .pipe( gulp.dest('css') );
 
 });
 
@@ -182,7 +170,9 @@ gulp.task('build:remove', ['build:copy', 'build:fonts', 'build:jsConcat', 'build
   del(config.buildRemove, cb);
 });
 
-gulp.task('build', ['build:copy', 'build:remove']);
+gulp.task('build', ['build:copy', 'build:remove'], function(){
+  .pipe( plugins.notify({ message: 'Build task complete' }) )
+});
 
 /*---------------
 BrowserSync
@@ -214,11 +204,10 @@ Watch
 ---------------*/
 gulp.task('watch', function(){
 
-  gulp.watch( 'js/**/*.js', ['scripts'] );
-  gulp.watch( 'scss/**/*.{scss,sass}', ['styles'] );
-  gulp.watch( 'css/**/*.css', ['css'] );
+  gulp.watch( './js/**/*.js', ['scripts'] );
+  gulp.watch( './scss/**/*.{scss,sass}', ['styles'] );
   gulp.watch( './**/*.php', reload );
-  gulp.watch( 'images/**/*', ['img']);
+  gulp.watch( './images/**/*.+(png|jpg|jpeg|gif|svg)', ['img']);
 
 });
 
